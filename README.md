@@ -23,7 +23,7 @@
 行商业化，但是用到的数据却是有价值的，所以并未提供，读者可以根据下一小节的内容自己去下载或爬取构建语料库。
 ```
 
-## 项目说明
+## 数据获取
 [刑事案件智能推理（预测罪名、量刑期限和所触犯的法律条文）数据集](https://github.com/cswangyuhui/CAIL)
 
 [法律问答数据语料库](http://www.64365.com/zs/quanbufenlei/)
@@ -32,11 +32,11 @@
 
 ### 项目成果
 
-<div align=center><img width="1100" height="800" src="https://github.com/cswangyuhui/AILaw/blob/master/image/weixin1.png"/></div>
+<div align=center><img width="1100" height="600" src="https://github.com/cswangyuhui/AILaw/blob/master/image/weixin1.png"/></div>
 
 ### 项目截图
 
-<div align=center><img width="1100" height="800" src="https://github.com/cswangyuhui/AILaw/blob/master/image/weixin2.png"/></div>
+<div align=center><img width="1100" height="600" src="https://github.com/cswangyuhui/AILaw/blob/master/image/weixin2.png"/></div>
 
 
 
