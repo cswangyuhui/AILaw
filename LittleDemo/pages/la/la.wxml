@@ -1,0 +1,16 @@
+<!--pages/la/la.wxml-->
+<view class="swiper-tab" > 
+  <view bindtap="swithNav" wx:for="{{tabCont}}" wx:key="item.index" class="swiper-tab-list {{currentTab==item.index?'active':''}}" data-current='{{item.index}}' >{{item.title}}</view> 
+</view> 
+<swiper class="swiper-box" current="{{currentTab}}" style="height:400px" bindchange="GetCurrentTab" data-current='0' >   
+  <!-- <swiper-item wx:for="{{tabCont}}" wx:key="item.index" catchtouchmove='catchTouchMove'>  -->
+   <!-- <view>{{item.title}}</view>
+  </swiper-item> 
+  <swiper-item wx:for="{{tabCont}}" wx:key="item.index">  -->
+  <swiper-item data-key="0"> 
+   <view>第一页</view>
+  </swiper-item> 
+  <swiper-item data-key="1"> 
+   <view>第二页</view>
+  </swiper-item>
+</swiper> 

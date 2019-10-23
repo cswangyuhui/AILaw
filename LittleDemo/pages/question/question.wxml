@@ -1,0 +1,62 @@
+<!--pages/question/question.wxml-->
+<view class="page">
+    <view class="page__hd">
+        <view class="page__title">法律智能问答</view>
+        <view class="page__desc">在下面文本框输入要咨询的问题可以得到法律解答</view>
+    </view>
+
+    <view class="page__bd">
+      <view class="weui-cells__title">
+        <view class='submit flex-wrp'   >
+          <view class='flex-item flex-wrp'>
+            <button class='submit orange-ui-btn' hover-class="orange-ui-btn-hover" bindtouchstart="startRecode" bindtouchend="endRecode"><text class='text'>按住录音</text>
+            <image src="/src/audio2.png" class='icon-record' mode='aspectFit'></image>
+            </button>
+            <button class='submit orange-ui-btn oubtn-r' bindtap="refresh">更新问题</button> 
+          </view>
+          
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell">
+              <view class="weui-cell__bd">
+                  <textarea class="weui-textarea fz14" placeholder="{{''}}" value="{{quest}}" bindinput="searchQuest"/>
+                  <!-- <view class="weui-textarea-counter">0/200</view> -->
+              </view>
+          </view>
+      </view>
+      <view class="button-sp-area">
+          <button class="weui-btn oo-btn" loading="{{loading}}" type="primary" plain="true" bind:tap="handleSearch">开始分析</button>
+      </view>
+
+      <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__hd">精选答案</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_text">
+                    <!-- <view class="weui-media-box__title weui-media-box__title_in-text">精选答案</view> -->
+                    <view class="weui-media-box__desc_all" style="color:#616161">{{initAnswer}}</view>
+                </view>         
+            </view>      
+        </view>
+
+        <view class="weui-panel">
+            <view class="weui-panel__hd">相似问题</view>
+            <view class="weui-panel__bd">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                    <view class="weui-cells weui-cells_in-small-appmsg">
+                      <block wx:for="{{initList}}" wx:key="item">
+                        <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bind:tap="handleTap" data-info="{{item.question}}">
+                            <view class="weui-cell__bd weui-cell_primary">
+                                <view style="color:#616161">{{item.question}}</view><view wx:if="{{index==0}}" style="color:#424242">(当前问题)</view>
+                            </view>
+                            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                        </view>  
+                      </block>                      
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+        
+      
+</view>

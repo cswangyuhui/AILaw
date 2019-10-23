@@ -1,0 +1,41 @@
+<!--pages/criminalsmall/searchresult/searchresult.wxml-->
+<!--pages/criminalsmall/criminalsmall.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">搜索结果</view>
+    <view class="page__desc">以下为有关<text style="color:#EAB268">{{info.keywords}}</text>的搜索结果</view>
+    <view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view>
+      <view class='page_cards'>
+        <view wx:for="{{dataList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotocriminalchose" data-info="{{item.crime}}" data-type="{{item.type}}">
+                  <span style="margin-left:5px;">{{item.crime}}</span><text wx:if="{{item.type=='big'}}" style="color:#757575">(大罪)</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <view wx:if="{{show}}">
+      <view class="weui-loadmore load">
+          <!-- <view class="weui-loading"></view> -->
+          <!-- <view class="weui-loadmore__tips">正在加载</view> -->
+      </view>
+      <view class="weui-loadmore weui-loadmore_line">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">未搜到相关结果</view>
+      </view>
+      <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+          <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+      </view>
+    </view>
+</view>

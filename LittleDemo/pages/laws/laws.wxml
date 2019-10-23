@@ -1,0 +1,513 @@
+<!-- <view>
+  <view class='swiper-tab'>
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">法律搜索</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">罪名库搜索</view>
+  </view>
+
+  <swiper class='swiper' current='{{currentTab}}' duration="300" bindchange="bindchange">
+    <view>
+      <swiper-item>
+        <scroll-view scroll-y="true">
+          <view class='page-view-one'>
+            <view class="page">
+              <view class="page__hd">
+                <view class="page__title">{{laws[lawIndex]}}</view>
+                <view class="page__desc">在下面输入关键字可以搜索相关法律条文</view>
+                <view>
+
+                  <picker bindchange="bindLawChange" value="{{lawIndex}}" range="{{laws}}" class="orange-select">
+                    <button class='submit orange-ui-btn oubtn-r'>更多法律</button>
+                    <view class="weui-select weui-select_in-select-after">{{countries[lawIndex]}}</view>
+                  </picker>
+                </view>
+              </view>
+              <view class="page__bd">
+                <view class="weui-search-bar">
+                  <view class="weui-search-bar__form">
+                    <view class="weui-search-bar__box">
+                      <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                      <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="dataRend" />
+                      <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+                        <icon type="clear" size="14"></icon>
+                      </view>
+                    </view>
+                    <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+                      <icon class="weui-icon-search" type="search" size="14"></icon>
+                      <view class="weui-search-bar__text">搜索</view>
+                    </label>
+                  </view>
+                  <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+                </view>
+                <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+                </view>
+
+                <view wx:if="{{lawname=='criminal'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==22}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==5||index==13||index==21||index==22||index==23||index==24||index==32||index==33||index==34||index==43||index==44||index==45||index==46)}}" bind:tap="gotodetailchapter"
+                              data-info="{{item}}">
+                              第{{item.chapternum}}章 {{item.chapter}}
+                            </view>
+                            <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='traffic'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{index==0||index==1||index==3||index==4||index==9||index==10||index==11||index==12}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapternum}}章 {{item.chapter}}
+                            </view>
+                            <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='labor'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapterNum}}章 {{item.chapter}}
+                            </view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='trafficscore'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapterNum}}章
+                              <view style="margin-top:5px;">{{item.chapter}}</view>
+                            </view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='civil'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==15||item.partnum==3&&index==32||item.partnum==4&&index==36}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==4||index==5||index==6||index==8||index==9||index==11||index==12||index==13||index==14||index==15||index==20||index==21||index==22||index==29||index==30||index==31||index==32||index==33||index==34||index==35||index==36||index==37||index==38||index==39||index==40)}}"
+                              bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapternum}}章 {{item.chapter}}
+                            </view>
+                            <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='security'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{index==0||index==1||index==2||index==6||index==9||index==10}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapternum}}章 {{item.chapter}}
+                            </view>
+                            <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='marriage'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapterNum}}章
+                              <span style="margin-left:5px;">{{item.chapter}}</span>
+                            </view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+                <view wx:if="{{lawname=='fund'}}">
+                  <view class='page_cards'>
+                    <view wx:for="{{infoList}}" wx:key="item">
+                      <view class="weui-panel2 weui-panel_access">
+                        <view class="weui-panel__bd2">
+                          <view class="weui-media-box2 weui-media-box_text2">
+                            <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                              第{{item.chapterNum}}章
+                              <span style="margin-left:5px;">{{item.chapter}}</span>
+                            </view>
+                          </view>
+                        </view>
+
+                      </view>
+                    </view>
+                  </view>
+                </view>
+
+
+
+
+              </view>
+            </view>
+
+
+          </view>
+        </scroll-view>
+      </swiper-item>
+    </view>
+    <swiper-item>
+      <scroll-view scroll-y="true">
+        <view class='page-view-one'>
+          <view class="page">
+            <view class="page__hd">
+              <view class="page__title">罪名库</view>
+              <view class="page__desc">在下面输入关键字可以搜索相关罪名</view>
+              <view>
+              <view>
+
+                  <picker class="orange-select" disabled='true'>
+                    <button class='submit orange-ui-btn oubtn-r' style='opacity:0'>更多法律</button>
+                    <view class="weui-select weui-select_in-select-after"></view>
+                  </picker>
+                </view>
+              </view>
+            </view>
+            <view class="page__bd">
+              <view class="weui-search-bar">
+                <view class="weui-search-bar__form">
+                  <view class="weui-search-bar__box">
+                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal2}}" focus="{{inputShowed2}}" bindinput="inputTyping2" bindconfirm="dataRend2" />
+                    <view class="weui-icon-clear" wx:if="{{inputVal2.length > 0}}" bindtap="clearInput2">
+                      <icon type="clear" size="14"></icon>
+                    </view>
+                  </view>
+                  <label class="weui-search-bar__label" hidden="{{inputShowed2}}" bindtap="showInput2">
+                    <icon class="weui-icon-search" type="search" size="14"></icon>
+                    <view class="weui-search-bar__text">搜索</view>
+                  </label>
+                </view>
+                <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed2}}" bindtap="hideInput2">取消</view>
+              </view>
+              <view class="weui-cells searchbar-result" wx:if="{{inputVal2.length > 0}}">
+              </view>
+
+              <view>
+                <view class='page_cards'>
+                  <view wx:for="{{criminalList}}" wx:key="item">
+                    <view class="weui-panel2 weui-panel_access">
+                      <view class="weui-panel__bd2">
+                        <view class="weui-media-box2 weui-media-box_text2">
+                          <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotocriminalsmall" data-info="{{item}}">
+                            <span style="margin-left:5px;">{{item}}</span>
+                          </view>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </view>
+
+            </view>
+          </view>
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+  </swiper>
+</view> -->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">{{laws[lawIndex]}}</view>
+    <view class="page__desc">在下面输入关键字可以搜索相关法律条文</view>
+    <view>
+
+      <picker bindchange="bindLawChange" value="{{lawIndex}}" range="{{laws}}" class="orange-select">
+        <button class='submit orange-ui-btn oubtn-r'>更多法律</button>
+        <view class="weui-select weui-select_in-select-after">{{countries[lawIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" bindconfirm="dataRend" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+          <icon class="weui-icon-search" type="search" size="14"></icon>
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
+    </view>
+
+    <view wx:if="{{lawname=='criminal'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==22}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==5||index==13||index==21||index==22||index==23||index==24||index==32||index==33||index==34||index==43||index==44||index==45||index==46)}}" bind:tap="gotodetailchapter"
+                  data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='traffic'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{index==0||index==1||index==3||index==4||index==9||index==10||index==11||index==12}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='labor'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章 {{item.chapter}}
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='trafficscore'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章
+                  <view style="margin-top:5px;">{{item.chapter}}</view>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='civil'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==15||item.partnum==3&&index==32||item.partnum==4&&index==36}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==4||index==5||index==6||index==8||index==9||index==11||index==12||index==13||index==14||index==15||index==20||index==21||index==22||index==29||index==30||index==31||index==32||index==33||index==34||index==35||index==36||index==37||index==38||index==39||index==40)}}"
+                  bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='security'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{index==0||index==1||index==2||index==6||index==9||index==10}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='marriage'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章
+                  <span style="margin-left:5px;">{{item.chapter}}</span>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='fund'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章
+                  <span style="margin-left:5px;">{{item.chapter}}</span>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='work'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==15||item.partnum==3&&index==32||item.partnum==4&&index==36}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==2||index==3||index==4||index==7||index==8||index==9)}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{lawname=='consume'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章
+                  <span style="margin-left:5px;">{{item.chapter}}</span>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+    
+        <view wx:if="{{lawname=='insurance'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__hd2 orange-card-head" wx:if="{{item.partnum==1&&index==0||item.partnum==2&&index==15||item.partnum==3&&index==32||item.partnum==4&&index==36}}" bind:tap="gotodetailpart" data-info="{{item}}">第{{item.partnum}}编 {{item.part}}</view>
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" wx:if="{{(index==0||index==1||index==4||index==5||index==6||index==7||index==8||index==9)}}" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapternum}}章 {{item.chapter}}
+                </view>
+                <view class="weui-media-box__desc2 orange-head3" wx:if="{{item.sectionnum!=0}}" bind:tap="gotodetailsection" data-info="{{item}}" style="color:#616161">第{{item.sectionnum}}节 {{item.section}}</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+        <view wx:if="{{lawname=='protect'}}">
+      <view class='page_cards'>
+        <view wx:for="{{infoList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotodetailchapter" data-info="{{item}}">
+                  第{{item.chapterNum}}章
+                  <span style="margin-left:5px;">{{item.chapter}}</span>
+                </view>
+              </view>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+
+
+
+  </view>
+</view>

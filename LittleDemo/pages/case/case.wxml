@@ -1,0 +1,188 @@
+<!--pages/question/question.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">刑事案情推理</view>
+    <view class="page__desc">在下面文本框输入刑事案件案情描述可以进行罪名推理、所犯法律条文预测和刑期预测</view>
+  </view>
+
+  <view class="page__bd">
+    <view class="weui-cells__title">
+      <view class="flex-wrp">
+        <view class="flex-wrp">
+          <button class='submit orange-ui-btn' bindtap="chooseImg">印刷体识别</button>
+          <button class='submit orange-ui-btn' bindtap="handImg">手写体识别</button>
+        </view>
+        <button class='submit orange-ui-btn oubtn-r' bindtap="refresh">更新案例</button>
+      </view>
+
+    </view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell">
+        <view class="weui-cell__bd">
+          <textarea class="weui-textarea fz14" placeholder="请输入案情描述" value="{{initQuest}}" auto-height="true" bindinput="inputs" minlength="{{min}}" maxlength="{{max}}" />
+          <view class="weui-textarea-counter">{{currentWordNumber|0}}/{{max}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="button-sp-area">
+      <button class="weui-btn oo-btn" type="primary" plain="true" bind:tap="handleSearch">开始分析</button>
+    </view>
+
+    <!-- <view class="weui-panel">
+      <view class="weui-panel__hd">罪名推理</view>
+      <view class="weui-panel__bd orange-ui">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <block wx:for="{{caseData.topK}}" wx:key="item">
+              <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view style="display: inline-block" class="fz15color">置信度：
+                    <text style="color:#616161" class='fz14'>{{caseData.chargeProb[index]}}</text>
+                  </view>
+                  <view style="display: block;margin-top:5px;" class="fz15color">判刑罪名：
+                    <text style="color:#616161" class='fz14'>{{caseData.chargeTag[index]}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-panel">
+      <view class="weui-panel__hd">相关法律</view>
+      <view class="weui-panel__bd orange-ui">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <block wx:for="{{caseData.topK}}" wx:key="item">
+              <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view style="margin-bottom:10px;" class="fz15color">置信度：
+                    <text style="color:#616161" class='fz14'>{{caseData.lawProb[index]}}</text>
+                  </view>
+                  <view class="fz15color">法律内容：
+                    <text style="color:#616161" class='fz14'>{{caseData.lawContent[index]}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-panel">
+      <view class="weui-panel__hd">刑期预测</view>
+      <view class="weui-panel__bd orange-ui">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+              <view class="weui-cell__bd weui-cell_primary">
+                <view style="margin-bottom:10px;" class="fz15color">判刑期限：
+                  <text style="color:#616161" class='fz14'>{{caseData.time}}</text>
+                </view>
+              </view>
+            </view>              
+          </view>
+        </view>
+      </view>
+    </view> -->
+
+    <view>
+      <view class='swiper-tab'>
+        <view class="swiper-tab-item {{currentTab==0?'active':''}} weui-panel__hd2" data-current="0" bindtap="clickTab">罪名推理</view>
+        <view class="swiper-tab-item {{currentTab==1?'active':''}} weui-panel__hd2" data-current="1" bindtap="clickTab">相关法律</view>
+        <view class="swiper-tab-item {{currentTab==2?'active':''}} weui-panel__hd2" data-current="2" bindtap="clickTab">刑期预测</view>
+      </view>
+
+      <swiper class='swiper' current='{{currentTab}}' duration="300" bindchange="bindchange" style="height:{{swHeight}}px">
+        <swiper-item>
+          <!-- <scroll-view scroll-y="true"> -->
+          <view class='page-view-one'>
+            <view class="weui-panel">
+              <!-- <view class="weui-panel__hd">罪名推理</view> -->
+              <view class="weui-panel__bd orange-ui">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                  <view class="weui-cells weui-cells_in-small-appmsg">
+                    <block wx:for="{{caseData.topK}}" wx:key="item">
+                      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd weui-cell_primary">
+                          <view style="display: inline-block" class="fz15color">置信度：
+                            <text style="color:#616161" class='fz14'>{{caseData.chargeProb[index]}}</text>
+                          </view>
+                          <view style="display: block;margin-top:5px;" class="fz15color">判刑罪名：
+                            <text style="color:#616161" class='fz14'>{{caseData.chargeTag[index]}}</text>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- </scroll-view> -->
+        </swiper-item>
+
+        <swiper-item>
+          <view id="swTop" style='height:1px'></view>
+          <!-- <scroll-view scroll-y="true"> -->
+          <view class='page-view-one sw2'>
+            <view class="weui-panel">
+              <!-- <view class="weui-panel__hd">相关法律</view> -->
+              <view class="weui-panel__bd orange-ui">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                  <view class="weui-cells weui-cells_in-small-appmsg">
+                    <block wx:for="{{caseData.topK}}" wx:key="item">
+                      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                        <view class="weui-cell__bd weui-cell_primary">
+                          <view style="margin-bottom:10px;" class="fz15color">置信度：
+                            <text style="color:#616161" class='fz14'>{{caseData.lawProb[index]}}</text>
+                          </view>
+                          <view class="fz15color">法律内容：
+                            <text style="color:#616161" class='fz14'>{{caseData.lawContent[index]}}</text>
+                          </view>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view id="swBottom" style='height:1px'></view>
+          <!-- </scroll-view> -->
+        </swiper-item>
+
+        <swiper-item>
+          <!-- <scroll-view scroll-y="true"> -->
+          <view class='page-view-one'>
+            <view class="weui-panel">
+              <!-- <view class="weui-panel__hd">刑期预测</view> -->
+              <view class="weui-panel__bd orange-ui">
+                <view class="weui-media-box weui-media-box_small-appmsg">
+                  <view class="weui-cells weui-cells_in-small-appmsg">
+                    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                      <view class="weui-cell__bd weui-cell_primary">
+                        <view style="margin-bottom:10px;" class="fz15color">判刑期限：
+                          <text style="color:#616161" class='fz14'>{{caseData.time}}</text>
+                        </view>
+                      </view>
+                    </view>
+                    <!-- </block>                       -->
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+          <!-- </scroll-view> -->
+        </swiper-item>
+      </swiper>
+    </view>
+
+
+  </view>
+
+
+</view>

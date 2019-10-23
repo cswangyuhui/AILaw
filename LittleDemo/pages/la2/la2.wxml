@@ -1,0 +1,26 @@
+<view>
+  <view class='swiper-tab'>
+    <view class="swiper-tab-item {{currentTab==0?'active':''}}" data-current="0" bindtap="clickTab">法律</view>
+    <view class="swiper-tab-item {{currentTab==1?'active':''}}" data-current="1" bindtap="clickTab">处罚</view>
+  </view>
+
+  <swiper class='swiper' current='{{currentTab}}' duration="300" bindchange="bindchange">
+    <!-- <view> -->
+      <swiper-item>
+        <scroll-view scroll-y="true">
+          <view class='page-view-one'>
+
+          </view>
+        </scroll-view>
+      </swiper-item>
+    <!-- </view> -->
+    <swiper-item>
+      <scroll-view scroll-y="true">
+        <view class='page-view-one'>
+
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+  </swiper>
+</view>

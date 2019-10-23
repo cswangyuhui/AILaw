@@ -1,0 +1,58 @@
+<!--pages/detail/detail.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">查询结果</view>
+    <view class="page__desc">以下为相应章节条款</view>
+  </view>
+
+  <view class='page_cards'>
+    <view wx:if="{{type=='chapterNum'}}">
+      <!-- <block wx:for="{{infoList}}" wx:key="item"> -->
+        <view class="weui-panel weui-panel_access" bind:tap="handleTap" data-info="{{item}}">
+          <view class="weui-panel__hd orange-card-head">第{{infoList.itemNum}}章 {{infoList.itemField}}</view>
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">
+              <view class="orange-head2 weui-media-box__title weui-media-box__title_in-text">
+                <!-- <text style="color:#424242" >第{{item.chapterNum}}章 {{item.chapter}}</text>    -->
+                <!-- <view class="orange-head21">第{{item.sectionNum}}节 {{item.section}}</view> -->
+              </view>
+              <view class="weui-media-box__desc2">{{infoList.item}}</view>
+            </view>
+          </view>
+        </view>
+      <!-- </block> -->
+    </view>
+
+    <view wx:if="{{type=='search'}}">
+      <block wx:for="{{infoList}}" wx:key="item">
+        <view class="weui-panel weui-panel_access" bind:tap="handleTap" data-info="{{item}}">
+          <view class="weui-panel__hd orange-card-head">第{{item.itemNum}}章 {{item.itemField}}</view>
+          <view class="weui-panel__bd">
+            <view class="weui-media-box weui-media-box_text">
+              <view class="orange-head2 weui-media-box__title weui-media-box__title_in-text">
+                <!-- <text style="color:#424242" >第{{item.chapterNum}}章 {{item.chapter}}</text>    -->
+                <!-- <view class="orange-head21">第{{item.sectionNum}}节 {{item.section}}</view> -->
+              </view>
+              <view class="weui-media-box__desc2">{{item.item}}</view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <view wx:if="{{show}}">
+    <view class="weui-loadmore load">
+      <!-- <view class="weui-loading"></view> -->
+      <!-- <view class="weui-loadmore__tips">正在加载</view> -->
+    </view>
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">未搜到相关结果</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+  </view>
+
+
+</view>

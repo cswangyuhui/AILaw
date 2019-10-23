@@ -1,0 +1,121 @@
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.orange-card-head {
+  font-size: 34rpx;
+  color: #1a237e;
+}
+
+.orange-head2 {
+  text-indent: 40rpx;
+  font-size: 32rpx;
+  padding: 10rpx;
+  color: #283593;
+  /* margin-bottom: 10px; */
+}
+
+.orange-head3 {
+  text-indent: 60rpx;
+  font-size: 30rpx;
+  padding: 10rpx;
+  color: #424242;
+}
+
+.weui-panel__hd2 {
+  padding: 28rpx 30rpx 20rpx;
+}
+
+.orange-select {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.weui-select, .weui-select_in-select-after {
+  display: none;
+}
+
+.orange-ui-btn {
+  vertical-align: baseline;
+  font-size: 26rpx;
+  padding-left: 14rpx;
+  padding-right: 14rpx;
+  background: #207dff;
+  color: #fff;
+  margin: 4rpx 20rpx;
+  margin-bottom: -20rpx;
+}
+
+.oubtn-r {
+  background: #fff;
+  color: #207dff;
+  direction: right;
+}
+
+.page__hd {
+  padding: 80rpx 0px 40rpx 80rpx;
+}
+
+.swiper-tab {
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+
+.swiper-tab-item {
+  flex: 1;
+  text-align: center;
+  border-bottom: 1rpx solid #eee;
+}
+
+.active {
+  color: 4675F9;
+  position: relative;
+}
+
+.swiper-tab-item.active {
+  border-bottom: 1px solid #207dff;
+  color:#207dff;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: fixed;
+  top: 80rpx;
+}
+
+scroll-view {
+  width: 100%;
+  height: 93%; /*动态高度*/
+}
+
+.page_cards {
+  margin-top: 10px;
+}
+.weui-search-bar{
+  border-top: none!important;
+  border-bottom: none!important;
+  background-color: #F8F8F8!important;
+}
+.weui-search-bar__form{
+  border: none!important;
+}
+.weui-cells:after{
+  border-bottom:none!important;
+}

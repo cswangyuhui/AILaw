@@ -1,0 +1,68 @@
+{
+  "pages": [
+    "pages/start/start",
+    "pages/question/question",
+    "pages/home/home",
+    "pages/detail/detail",
+    "pages/la/la",
+    "pages/la2/la2",
+    "pages/detail/criminal/detail",
+    "pages/detail/traffic/detail",
+    "pages/detail/labor/detail",
+    "pages/detail/trafficscore/detail",
+    "pages/detail/civil/detail",
+    "pages/detail/security/detail",
+    "pages/detail/marriage/detail",
+    "pages/detail/work/detail",
+    "pages/detail/fund/detail",
+    "pages/detail/consume/detail",
+    "pages/detail/insurance/detail",
+    "pages/detail/protect/detail",
+    "pages/case/case",
+    "pages/qa/qa",
+    "pages/laws/laws",
+    "pages/criminalsmall/criminalsmall",
+    "pages/criminalsmall/searchresult/searchresult",
+    "pages/criminalsmall/detail/detail",
+    "pages/font/font"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#207dff",
+    "navigationBarTitleText": "法律小智囊",
+    "navigationBarTextStyle": "white"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#207dff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/case/case",
+        "text": "案情推理",
+        "iconPath": "src/search7.png",
+        "selectedIconPath": "src/search5.png"
+      },
+      {
+        "pagePath": "pages/question/question",
+        "text": "智能问答",
+        "iconPath": "src/question7.png",
+        "selectedIconPath": "src/question5.png"
+      },
+      {
+        "pagePath": "pages/qa/qa",
+        "text": "法律知识",
+        "iconPath": "src/知识7.png",
+        "selectedIconPath": "src/知识5.png"
+      },
+      {
+        "pagePath": "pages/laws/laws",
+        "text": "法律手册",
+        "iconPath": "src/book7.png",
+        "selectedIconPath": "src/book5.png"
+      }
+    ]
+  },
+  "enablePullDownRefresh": true
+}

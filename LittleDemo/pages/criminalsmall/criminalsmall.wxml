@@ -1,0 +1,27 @@
+<!--pages/criminalsmall/criminalsmall.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">罪名库</view>
+    <view class="page__desc2">{{info}}</view>
+    <view>
+    </view>
+  </view>
+  <view class="page__bd">
+    <view>
+      <view class='page_cards'>
+        <view wx:for="{{criminalSmalllList}}" wx:key="item">
+          <view class="weui-panel2 weui-panel_access">
+            <view class="weui-panel__bd2">
+              <view class="weui-media-box2 weui-media-box_text2">
+                <view class="orange-head2 weui-media-box__title_in-text2" bind:tap="gotocriminaldetail" data-info="{{item.crimeSmall}}">
+                  <span style="margin-left:0px;">{{item.crimeSmall}}</span>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+</view>

@@ -1,0 +1,46 @@
+<!--pages/start/start.wxml-->
+<view class="page">
+  <view><image class="cover"></image></view>
+    <!-- <view class="page__hd">
+        <view class="page__title" style="text-align:center;margin-bottom:220px;">
+        刑法小助手
+        </view>
+        <view class="page__desc">刑法小助手很好，真的</view>
+
+        <view class="page__desc">刑法小助手很好，真的</view>
+
+        <view class="page__desc">刑法小助手很好，真的</view>
+    </view>
+    <view class="page__bd page__bd_spacing">
+        <view class="kind-list"> -->
+            <!-- <block wx:for="{{list}}" wx:key="id">
+                <view class="kind-list__item">
+                    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+                        <view class="weui-flex__item">{{item.name}}</view>
+                        <image class="kind-list__img" src="images/icon_nav_{{item.id}}.png"></image>
+                    </view>
+                    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+                        <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+                            <block wx:for="{{item.pages}}" wx:for-item="page" wx:key="*this">
+                                <navigator url="{{page}}/{{page}}" class="weui-cell weui-cell_access">
+                                    <view class="weui-cell__bd">{{page}}</view>
+                                    <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+                                </navigator>
+                            </block>
+                        </view>
+                    </view>
+                </view>
+            </block> -->
+            <!-- <navigator url='../question/question'> -->
+              <!-- <button class="start-btn" bind:tap="gotoApp">进入app<view class='button-after'></view></button> -->
+            <!-- </navigator> -->
+            
+        <!-- </view>
+    </view> -->
+    <!-- <view class="page__ft"> -->
+        <!-- <image src="images/icon_footer.png" style="width: 84px; height: 19px;"></image> -->
+        <!-- <text sytle="color:#9E9E9E;font-size:10px"> -->
+        <!-- Made by BUTP -->
+        <!-- </text> -->
+    <!-- </view> -->
+</view>

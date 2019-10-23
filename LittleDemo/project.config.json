@@ -1,0 +1,110 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.4",
+	"appid": "wx34860b9a719a8c82",
+	"projectname": "LittleDemo",
+	"cloudfunctionTemplateRoot": "",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"scripts": {},
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 8,
+			"list": [
+				{
+					"id": -1,
+					"name": "智能问答",
+					"pathName": "pages/question/question",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "法律",
+					"pathName": "pages/laws/laws",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "案情推理",
+					"pathName": "pages/case/case",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "启动页",
+					"pathName": "pages/start/start",
+					"query": "",
+					"scene": 1001
+				},
+				{
+					"id": -1,
+					"name": "选项卡",
+					"pathName": "pages/la/la",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选项卡",
+					"pathName": "pages/la2/la2",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "选项卡",
+					"pathName": "pages/qa/qa",
+					"query": "qa",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "法律知识",
+					"pathName": "pages/qa/qa",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "字体",
+					"pathName": "pages/font/font",
+					"scene": null
+				}
+			]
+		}
+	}
+}

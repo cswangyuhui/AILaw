@@ -1,0 +1,32 @@
+/* pages/detail/detail.wxss */
+.weui-media-box__desc{
+  color:#999;
+  font-size:26rpx;
+  line-height:1.2;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  display:-webkit-box;
+  -webkit-box-orient:vertical;
+  -webkit-line-clamp:1000;
+
+}
+.orange-head21{
+  font-size: 31rpx;
+  /* text-indent: 5px; */
+  color:#353535;
+}
+.orange-card-head{
+  font-size: 34rpx;
+  color:#1a237e;
+}
+.orange-head2{
+  /* text-indent: 20px; */
+  font-size: 32rpx;
+  color: #283593;
+  margin-bottom: 6rpx;
+}
+.weui-media-box__desc2{
+  font-size: 30rpx;
+  text-indent: 56rpx;
+  color:#424242;
+}

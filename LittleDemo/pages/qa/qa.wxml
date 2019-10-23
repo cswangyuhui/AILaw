@@ -1,0 +1,58 @@
+<!--pages/question/question.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">法律知识</view>
+    <view class="page__desc">学习法律知识，提高法律意识</view>
+    <view class="flex-wrp">
+      <button class='submit orange-ui-btn oubtn-r' bindtap="refresh">更新一批</button>
+    </view>
+  </view>
+
+  <!-- <view class="page__bd">  
+    <view class="weui-panel">
+      <view class="weui-panel__hd">法律知识学习</view>
+      <view class="weui-panel__bd orange-ui">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+            <block wx:for="{{qaData.length}}" wx:key="item">
+              <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd weui-cell_primary">
+                  <view style="margin-bottom:10px;" class="fz15color">问题：
+                    <text style="color:#616161" class='fz14'>{{qaData[index].question}}</text>
+                  </view>
+                  <view class="fz15color" style="margin-bottom:10px;">分类：{{qaData[index].big}}
+                    <text style="color:#616161" class='fz14'>{{"（"+qaData[index].small+"）"}}</text>
+                  </view>
+                  <view class="fz15color">答案：
+                    <text style="color:#616161" class='fz14'>{{qaData[index].answer}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view> -->
+
+  <block wx:for="{{qaData.length}}" wx:key="item">
+    <view class='orange-cards'>
+      <view class='oc-content'>
+        <view class="weui-cell__bd weui-cell_primary">
+          <view style="margin-bottom:8rpx;" class="fz15color">
+          <!-- 问题： -->
+            <text class='fz15'>{{qaData[index].question}}？</text>
+          </view>
+          <view class="fz14title" style="margin-bottom:3px;">问题分类：{{qaData[index].big}}
+            <text class='fz14'>{{"（"+qaData[index].small+"）"}}</text>
+          </view>
+          <view class="fz12title">答案：
+            <text class='fz12'>{{qaData[index].answer}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+
+</view>

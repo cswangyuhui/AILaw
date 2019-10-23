@@ -1,0 +1,75 @@
+@import 'wxstyle/weui.wxss';
+
+page{
+    background-color: #F8F8F8;
+    font-size: 32rpx;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}
+.page__hd {
+    padding: 70rpx 70rpx 56rpx 70rpx;
+}
+.page__bd {
+    padding-bottom: 56rpx;
+}
+.page__bd_spacing {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.page__ft{
+    padding-bottom: 20rpx;
+    text-align: center;
+}
+
+.page__title {
+    text-align: left;
+    /* font-size: 20px; */
+    font-size: 42rpx;
+    font-weight: 400;
+}
+
+.page__desc {
+    margin-top: 10rpx;
+    color: #888888;
+    text-align: left;
+    /* font-size: 14px; */
+    font-size: 28rpx;
+}
+
+.orange-ui-btn{
+  vertical-align: baseline;
+  font-size: 24rpx;
+  padding-left: 14rpx;
+  padding-right: 14rpx;
+  /* background: #207dff; */
+  /* color:#fff; */
+  margin: 4rpx 10rpx;
+  background: #fff;
+  /* color:#fff; */
+  color:#207dff;
+  /* margin-left: 10px; */
+  margin-right: 20rpx;
+  margin-left: 0;
+  font-weight: 500;
+  border-color: #dedede;
+}
+.oubtn-r{
+  background: #fff;
+  /* color:#207dff; */
+  color:#000;
+  direction: right;
+  margin-right: 0;
+  font-weight: normal;
+}
+.oo-btn{
+  color:#fff!important;
+  border-radius: 8rpx!important;
+  background-color: #207dff!important;
+  border: none!important;
+  font:SimHei;
+  height: 76rpx;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  box-shadow: 0px 2rpx 6rpx rgba(0, 0, 0, .25);
+  font-weight: 500;
+}

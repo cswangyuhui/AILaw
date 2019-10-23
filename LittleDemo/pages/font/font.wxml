@@ -1,0 +1,16 @@
+<!--pages/font/font.wxml-->
+<view style="font-size:32rpx">32rpx</view>
+<view style="font-size:28rpx">28rpx</view>
+<view style="font-size:24rpx">24rpx</view>
+<view style="font-size:18rpx">18rpx</view>
+<view style="font-size:16rpx">16rpx</view>
+<view style="font-size:14rpx">14rpx</view>
+
+<view style="font-size:32px">32px</view>
+<view style="font-size:28px">28px</view>
+<view style="font-size:24px">24px</view>
+<view style="font-size:18px">18px</view>
+<view style="font-size:16px">16px</view>
+<view style="font-size:14px">14px</view>
+
+

@@ -1,0 +1,121 @@
+.button-sp-area{
+    margin: 0 auto;
+    padding-top: 15px;
+    width: 35%;
+}
+.mini-btn{
+    margin-right: 5px;
+}
+.weui-textarea{
+  max-height: 7.3em;
+  /* overflow: scroll; */
+}
+.weui-panel__hd{
+  color:#207dff;
+  font-size: 32rpx;
+}
+.orange-ui{
+  font-size: 24rpx!important;
+}
+.flex-wrp{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.orange-ui-btn{
+  vertical-align: baseline;
+  font-size: 26rpx;
+  padding-left: 14rpx;
+  padding-right: 14rpx;
+  /* background: #207dff; */
+  /* color:#fff; */
+  margin: 4rpx 10rpx;
+  background: #fff;
+  /* color:#fff; */
+  color:#207dff;
+  /* margin-left: 10px; */
+  margin-right: 20rpx;
+  margin-left: 0;
+  font-weight: 500;
+  border-color: #dedede;
+}
+.oubtn-r{
+  background: #fff;
+  /* color:#207dff; */
+  color:#000;
+  direction: right;
+  margin-right: 0;
+  font-weight: normal;
+}
+/* button.weui-btn{
+  color:#2b8bc6!important;
+  border-color:#2b8bc6!important;
+  font-size: 16px!important;
+} */
+.weui-textarea{
+  color:#353535!important;
+}
+.fz14{
+  font-size: 30rpx!important;
+}
+.fz15color{
+  font-size: 32rpx!important;
+  color:#353535;
+}
+/* 添加la2 */
+ 
+.swiper-tab{
+  display: flex;
+  height: 80rpx;
+  line-height: 80rpx;
+  width: 100%;
+  /* position:fixed; */
+  top:100;
+  z-index: 100;
+  background: #fff;
+  margin-top: 20rpx;
+}
+.swiper-tab-item{
+  flex: 1;
+  text-align: center;
+  color:#353535;
+  border-bottom: 1rpx solid #eee;
+}
+.active{
+  /* color: 4675F9; */
+  color:#207dff;
+  font-size: 32rpx;
+  position: relative;
+}
+.swiper-tab-item.active{
+   border-bottom:1px solid #207dff;
+   }
+.swiper{
+  width: 100%;
+  /* height: 100%; */
+  display: flex;
+  position: relative;
+  min-height: 400px;
+  /* height: 800px; */
+  /* top:800rpx; */
+}
+scroll-view{
+  width: 100%;
+  min-height: 400px;
+  height: 93%;/*动态高度*/
+}
+.oo-btn{
+  color:#fff!important;
+  border-radius: 8rpx!important;
+  background-color: #207dff!important;
+  border: none!important;
+  font:SimHei;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 30rpx;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, .25);
+  font-weight: 500;
+}
+.weui-textarea-counter{
+  font-size: 30rpx;
+}

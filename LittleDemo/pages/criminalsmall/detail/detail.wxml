@@ -1,0 +1,109 @@
+<!--pages/criminalsmall/detail/detail.wxml-->
+<view class="page">
+  <view class="page__hd">
+    <view class="page__title">查询结果</view>
+    <view class="page__desc">以下为
+      <span style="color:#EAB268">{{initdata.crimeSmall}}</span>介绍</view>
+  </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__hd">所属大罪</view>
+    <view class="weui-panel__bd orange-ui">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <block>
+            <view class="weui-cell weui-cell_access">
+              <view class="weui-cell__bd weui-cell_primary">
+                <!-- <view style="display: inline-block" class="fz15color">
+                  <text style="color:#616161" class='fz14'></text>
+                </view> -->
+                <view style="display: block;margin-top:5px;" class="fz15color">
+                  <text style="color:#616161" class='fz14'>{{initdata.crimeBig}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__hd">概念</view>
+    <view class="weui-panel__bd orange-ui">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <block>
+            <view class="weui-cell weui-cell_access">
+              <view class="weui-cell__bd weui-cell_primary">
+                <!-- <view style="display: inline-block" class="fz15color">
+                  <text style="color:#616161" class='fz14'></text>
+                </view> -->
+                <view style="display: block;margin-top:5px;" class="fz15color">
+                  <text style="color:#616161" class='fz14'>{{initdata.concept}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="weui-panel">
+    <view class="weui-panel__hd">量刑标准</view>
+    <view class="weui-panel__bd orange-ui">
+      <view class="weui-media-box weui-media-box_small-appmsg">
+        <view class="weui-cells weui-cells_in-small-appmsg">
+          <block wx:for="{{initdata.punish}}" wx:key="item">
+            <view class="weui-cell weui-cell_access">
+              <view class="weui-cell__bd weui-cell_primary">
+                <view style="display: block;margin-top:5px;" class="fz15color">
+                  <text style="color:#616161" class='fz14'>{{item}}</text>
+                </view>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <block wx:if="{{initdata.law.length>0}}">
+    <view class="weui-panel">
+      <view class="weui-panel__hd">相关法条</view>
+      <view class="weui-panel__bd orange-ui">
+        <view class="weui-media-box weui-media-box_small-appmsg">
+          <view class="weui-cells weui-cells_in-small-appmsg">
+
+            <block wx:for="{{initdata.law}}" wx:key="item">
+              <view class="orange-cell">
+                <view class="weui-cell__bd">
+                  <view class="fz15color">
+                    <text style="color:#616161" class='fz14'>{{item}}</text>
+                  </view>
+                </view>
+              </view>
+            </block>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <view wx:if="{{show}}">
+    <view class="weui-loadmore load">
+      <!-- <view class="weui-loading"></view> -->
+      <!-- <view class="weui-loadmore__tips">正在加载</view> -->
+    </view>
+    <view class="weui-loadmore weui-loadmore_line">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">未搜到相关结果</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line weui-loadmore_dot">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line weui-loadmore__tips_in-dot"></view>
+    </view>
+  </view>
+
+
+</view>
